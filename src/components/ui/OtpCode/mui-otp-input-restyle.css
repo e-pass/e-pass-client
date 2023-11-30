@@ -1,0 +1,9 @@
+/* restyle MuiOtpInput */
+.MuiInputBase-formControl {
+  border-radius: 12px !important;
+  @apply max-w-[62px] h-[66px] border-[#9E9E9E];
+}
+
+.Mui-focused {
+  @apply caret-blue;
+}
