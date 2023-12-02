@@ -6,6 +6,8 @@ export default {
       colors: {
         orange: '#ED6337',
         'orange-light': '#F08F5D',
+        text: '#212121',
+        blue: '#4B52FC',
       },
     },
   },
