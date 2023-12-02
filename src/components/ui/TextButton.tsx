@@ -15,13 +15,14 @@ const TextButton: FC<Props> = (
     icon = null,
     isIconAtEnd = false,
     className = '',
-    textColor = 'text', // colors from tailwind.config.js or hex in format [#000000]
+    textColor = 'text', // colors from constants/colors or hex
     children,
     ...rest
   }) => {
   return (
     <button
-      className={cn(`inline-flex gap-1 items-center main-text-14 text-${textColor}`, className)}
+      className={cn(`inline-flex gap-1 items-center main-text-14`, className)}
+      style={{ color: textColor }}
       onClick={onClick}
       {...rest}>
 
