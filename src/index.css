@@ -3,11 +3,41 @@
 @tailwind utilities;
 
 @layer base {
-  .main-text-14 {
-    @apply text-sm text-text font-normal;
+  .normal-text-13 {
+    @apply text-sm leading-4 text-text tracking-[-.13px];
+  }
+
+  .normal-text-15 {
+    @apply text-base leading-5 text-text tracking-[-.15px];
+  }
+
+  .medium-text-15 {
+    @apply text-base leading-5;
+  }
+
+  .normal-text-17 {
+    @apply text-xl leading-6 tracking-[-.17px];
+  }
+
+  .bold-text-17 {
+    @apply text-xl text-white tracking-[-.17px] font-bold;
   }
 
   .main-h1 {
     @apply text-3xl text-text font-bold;
+  }
+}
+
+@layer components {
+  .orange-btn {
+    @apply text-white bg-orange;
+  }
+
+  .black-text-btn {
+    @apply text-text;
+  }
+
+  .blue-text-btn {
+    @apply text-blue;
   }
 }

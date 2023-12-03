@@ -1,9 +1,10 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
+import Test from './components/Test.tsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <h1>Main layout</h1>,
+    element: <h1><Outlet/></h1>,
     children: [
       {
         path: '/register',
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <h1>Login</h1>,
+      },
+      {
+        path: '/test',
+        element: <Test/>,
       },
       {
         path: '*',

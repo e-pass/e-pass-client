@@ -17,8 +17,6 @@ const Timer: FC<Props> = ({seconds = 60, className = ''}) => {
       1000
     );
 
-    console.log(time)
-
     if (time < 1) {
       clearInterval(interval);
     }
@@ -50,15 +48,15 @@ const Timer: FC<Props> = ({seconds = 60, className = ''}) => {
 
   return (
     <div className={cn(className)}>
-      {time > 0 && (<p className={cn('main-text-14')}>
+      {time > 0 && (<p className={cn('normal-text-15')}>
         <span>Не пришел код? Запросить код еще раз через&nbsp;</span>
         <span className={cn('text-blue')}>{`${Math.floor(time)}`.padStart(2, '0')}</span>
         <span>&nbsp;{formatText(time)}</span>
       </p>)}
 
-      {time < 1 && (<p className={cn('main-text-14')}>
+      {time < 1 && (<p className={cn('normal-text-15')}>
         Не пришел код?&nbsp;
-        <TextButton onClick={resetAttempt} textColor='blue' >
+        <TextButton onClick={resetAttempt} buttonStyle='blue' >
           Запросить код еще раз.
         </TextButton>
       </p>)}

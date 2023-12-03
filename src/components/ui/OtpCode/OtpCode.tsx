@@ -1,20 +1,14 @@
 import { MuiOtpInput } from 'mui-one-time-password-input';
 import { Control, Controller } from 'react-hook-form';
 import { FC } from 'react';
-import { z } from 'zod';
 import './mui-otp-input-restyle.css';
+import { validateNumber } from '../../../zod/schemes.ts';
 
 interface Props {
-  control: Control<{ otp: string; }>;
+  control: Control<any>;
 }
 
 const OtpCode: FC<Props> = ({control}) => {
-  const mySchema = z.number().nonnegative();
-
-  const validateNumber = (val: string) => {
-    return mySchema.safeParse(+val).success;
-  }
-
   return (
     <Controller
       name="otp"
