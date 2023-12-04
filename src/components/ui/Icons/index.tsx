@@ -1,7 +1,11 @@
-import arrow from '../../../assets/icons/arrow.svg';
 import IconTemplate from './IconTemplate.tsx';
-import { FC } from 'react';
+import arrow from '../../../assets/icons/arrow.svg';
+import error from '../../../assets/icons/error.svg';
 
-export const ArrowIcon: FC = () => (
-  <IconTemplate src={arrow} alt="иконка назад"/>
+export const ArrowIcon = ({...rest}) => (
+  <IconTemplate src={arrow} alt="иконка назад" {...rest} />
+);
+
+export const ErrorIcon = ({...rest}) => (
+  <IconTemplate src={error} alt="ошибка" {...rest}/>
 );

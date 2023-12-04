@@ -30,7 +30,7 @@ const ConfirmPasswordForm: FC<Props> = ({phone = 71234567890}) => {
       }} icon={<ArrowIcon/>}> Назад </TextButton>
 
       <h1 className={cn('main-h1')}>Подтвердите номер телефона</h1>
-      <p className={cn('main-text-14 mt-3 mb-[42px]')}>
+      <p className={cn('normal-text-15 mt-3 mb-[42px]')}>
         Мы отправили код на номер {formatPhone(phone)}
       </p>
 

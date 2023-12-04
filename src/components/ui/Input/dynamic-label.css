@@ -1,0 +1,5 @@
+.input:not(:placeholder-shown) ~ .label,
+.input:focus ~ .label {
+  transform: translate(0, calc(-50% - 16px));
+  @apply normal-text-13;
+}
