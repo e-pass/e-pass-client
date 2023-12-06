@@ -6,19 +6,24 @@ import { ArrowIcon } from './ui/Icons';
 import OtpCode from './ui/OtpCode/OtpCode.tsx';
 import Link from './ui/Link.tsx';
 import { validateNumber } from '../zod/schemes.ts';
+import { dateMask, phoneMask } from '../utils/imask.ts';
 
 export interface FormValues {
   test: string;
   otp: string;
+  phone: string;
+  birthday: string;
 }
 
 const Test = () => {
   const {
-    register, handleSubmit, formState: {errors, isValid, isDirty}, control, // reset,
+    handleSubmit, formState: {isValid, isDirty}, control,  // reset,
   } = useForm<FormValues>({
     defaultValues: {
-      test: '',
+      test: '222',
       otp: '',
+      phone: '',
+      birthday: '',
     },
     mode: 'onBlur',
   });
@@ -44,12 +49,31 @@ const Test = () => {
       </Button>
 
       <Input
+        control={control}
         label="Имя"
         name="test"
-        register={register}
-        errors={errors}
         validationOptions={{
           validate: (value: string) => validateNumber(value) || 'Ошибка! доступные символы - цифры',
+          required: 'Поле обязательно для заполнения',
+        }}/>
+
+      <Input
+        control={control}
+        label="Телефон"
+        name="phone"
+        mask={phoneMask}
+        validationOptions={{
+          validate: (value: string) => validateNumber(value) || 'Ошибка! доступные символы - цифры',
+          required: 'Поле обязательно для заполнения',
+        }}/>
+
+      <Input
+        control={control}
+        label="Дата рождения"
+        name="birthday"
+        mask={dateMask}
+        validationOptions={{
+          // validate: (value: string) => validateNumber(value) || 'Ошибка! доступные символы - цифры',
           required: 'Поле обязательно для заполнения',
         }}/>
 
