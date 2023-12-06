@@ -10,7 +10,7 @@ export interface InputProps extends ComponentProps<'input'> {
   name: string;
   validationOptions?: Record<string, any>;
   label?: string;
-  type?: 'text' | 'password' | 'email';
+  type?: 'text' | 'password' | 'email' | 'number';
   icon?: React.ReactNode;
   onIconClick?: () => void;
   width?: number | string;
@@ -25,45 +25,9 @@ const Input: FC<InputProps> = (
     label = '',
     type = 'text',
     width = 343,
-    mask = { mask: /[\S\s]/},
+    mask = {mask: /[\S\s]/},
     control,
   }) => {
-
-  // console.log(test);
-  // return (
-  //   <div className={cn('flex flex-col gap-2')} style={{ maxWidth: width }}>
-  //     <label className={cn('relative')}>
-  //       {!!errors[name] && <ErrorIcon className={cn('absolute top-2/4 right-4 translate-y-[-50%]')} />}
-  //       <input
-  //         className={cn(`
-  //           input w-full px-4 pt-7 pb-3 border rounded-xl normal-text-17 placeholder:text-[rgba(0,0,0,0)]
-  //           ${errors[name] ? 'border-error text-error' :'border-gray-80'} outline-blue`)}
-  //         type={type}
-  //         placeholder='placeholder'
-  //         {...register(name, validationOptions)}/>
-  //       {/*<IMaskInput*/}
-  //       {/*  className={cn(`*/}
-  //       {/*    input w-full px-4 pt-7 pb-3 border rounded-xl normal-text-17 placeholder:text-[rgba(0,0,0,0)]*/}
-  //       {/*    ${errors[name] ? 'border-error text-error' :'border-gray-80'} outline-blue`)}*/}
-  //       {/*  type={type}*/}
-  //       {/*  placeholder='placeholder'*/}
-  //       {/*  // mask={mask}*/}
-  //       {/*  {...register(name, validationOptions)} />*/}
-  //
-  //       <span className={cn(`
-  //         label normal-text-17 text-text opacity-50 absolute top-2/4 left-[17px]
-  //         translate-y-[-50%] transition-[transform,font-size]`)}>
-  //         {label}
-  //       </span>
-  //
-  //     </label>
-  //     {errors[name] && (
-  //       <span className={cn('normal-text-13 text-error ml-4')}>
-  //         {errors[name]?.message as ReactNode}
-  //       </span>)
-  //     }
-  //   </div>
-  // )
 
   const {ref: maskRef, unmaskedValue} = useIMask(mask);
 
@@ -74,13 +38,11 @@ const Input: FC<InputProps> = (
       rules={validationOptions}
       render={({field, fieldState}) => {
         const errorMessage = fieldState.error?.message;
-        console.log(field.value)
-        console.log('mask1.unmaskedValue', unmaskedValue)
+
         return (
           <div className={cn('flex flex-col gap-2')} style={{maxWidth: width}}>
             <label className={cn('relative')}>
-              {!!errorMessage &&
-                <ErrorIcon className={cn('absolute top-2/4 right-4 translate-y-[-50%]')}/>}
+              {!!errorMessage && <ErrorIcon className={cn('absolute top-2/4 right-4 translate-y-[-50%]')}/>}
               <input
                 className={cn(`input w-full px-4 pt-7 pb-3 border rounded-xl normal-text-17 outline-blue
                   placeholder:text-[rgba(0,0,0,0)] ${errorMessage ? 'border-error text-error' : 'border-gray-80'}`)}
