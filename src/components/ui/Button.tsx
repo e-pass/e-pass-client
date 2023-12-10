@@ -4,7 +4,7 @@ import { cn } from '../../utils/cn'
 type ButtonStyles = 'orange';
 
 interface Props extends ComponentProps<'button'> {
-  onClick: () => void;
+  onClick?: () => void;
   type?: 'button' | 'submit';
   icon?: React.ReactNode;
   isIconAtEnd?: boolean;

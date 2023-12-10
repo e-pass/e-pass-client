@@ -8,6 +8,7 @@ import { maskPropType } from '../../../utils/imask.ts';
 
 export interface InputProps extends ComponentProps<'input'> {
   name: string;
+  control: Control<any>;
   validationOptions?: Record<string, any>;
   label?: string;
   type?: 'text' | 'password' | 'email' | 'number';
@@ -15,7 +16,7 @@ export interface InputProps extends ComponentProps<'input'> {
   onIconClick?: () => void;
   width?: number | string;
   mask?: maskPropType;
-  control?: Control<any>;
+  className?: string;
 }
 
 const Input: FC<InputProps> = (
@@ -27,6 +28,7 @@ const Input: FC<InputProps> = (
     width = 343,
     mask = {mask: /[\S\s]/},
     control,
+    className,
   }) => {
 
   const {ref: maskRef, unmaskedValue} = useIMask(mask);
@@ -40,7 +42,7 @@ const Input: FC<InputProps> = (
         const errorMessage = fieldState.error?.message;
 
         return (
-          <div className={cn('flex flex-col gap-2')} style={{maxWidth: width}}>
+          <div className={cn('flex flex-col gap-2', className)} style={{maxWidth: width}}>
             <label className={cn('relative')}>
               {!!errorMessage && <ErrorIcon className={cn('absolute top-2/4 right-4 translate-y-[-50%]')}/>}
               <input
