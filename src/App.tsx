@@ -1,5 +1,6 @@
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import Test from './components/Test.tsx';
+import Login from './pages/Login.tsx';
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/login',
-        element: <h1>Login</h1>,
+        element: <Login/>,
       },
       {
         path: '/test',
